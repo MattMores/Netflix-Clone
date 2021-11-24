@@ -10,8 +10,13 @@ function Row( {title, fetchUrl} ) { //{title} = props.title
  // We need a snippet of code which run based on a specific condition/variable.
 // can't use async things in a useEffect so you have to do it in a special way
  useEffect(() => {
-
- }, []); // if bracket is blank. run once when the row loads. and don't run it again.
+    async function fetchData() {
+        const request = await axios.get(fetchUrl);
+        setMovies(request.data.results);
+        return request;
+    }
+    fetchData();
+ }, [fetchUrl]); // if bracket is blank. run once when the row loads. and don't run it again.
 
     return (
         <div>
