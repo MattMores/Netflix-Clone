@@ -1,0 +1,4 @@
+.row__poster {
+  width: 100%; /* use up 100% of screen */
+  object-fit: contain; /* keeps object ration regardless of window size */
+}
