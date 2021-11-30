@@ -1,4 +1,36 @@
+.row {
+  margin-left: 20px;
+}
+.row__posters {
+  display: flex;
+  overflow-y: hidden; /* hides bottom scroll bar - adds scroll bar to each row */
+  overflow-x: scroll; /* adds scroll bar to x-axis of rows */
+  padding: 20px; /* avoids top from being cropped on hover */
+}
+
+.row__posters::-webkit-scrollbar {
+  /* tell all of the browsers to not display the scrollbar, but keep its functionality */
+  display: none;
+}
+
 .row__poster {
   width: 100%; /* use up 100% of screen */
+  max-height: 100px;
+  margin-right: 10px; /* gives spacing between picture */
   object-fit: contain; /* keeps object ration regardless of window size */
+  transition: transform 450ms; /* if it ever changes size it will do it in a very slow way */
+}
+
+.row__poster:hover {
+  /* when you hover over it, we want it to get bigger*/
+  transform: scale(1.08);
+  /* opacity: 1; */
+}
+
+.row__posterLarge {
+  max-height: 250px;
+}
+
+.row__posterLarge:hover {
+  transform: scale(1.09);
 }

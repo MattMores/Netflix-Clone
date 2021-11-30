@@ -4,7 +4,7 @@ import "./Row.css"
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 
-function Row( {title, fetchUrl} ) { //{title} = props.title
+function Row( {title, fetchUrl, isLargeRow} ) { //{title} = props.title
 //state is like short-term memory. when we refresh it dissapears
  //state is the way to write variables in react
 
@@ -35,8 +35,12 @@ function Row( {title, fetchUrl} ) { //{title} = props.title
             <div className="row__posters">
             {movies.map(movie => (
                 <img
-                className="row__poster"
-                src={`${base_url}${movie.poster_path}`} alt={movie.name} />
+                key={movie.id} // if anything changes in the row, react doesn't re-render the entire row, but only what it needs to
+                //key also makes it slightly faster
+                className={`row__poster ${isLargeRow && "row__posterLarge"} `} // if it's a large row it gets an additional class called row__posterLarge
+                src={`${base_url}${
+                    isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                alt={movie.name} />
             )) }
             </div>
         </div>
