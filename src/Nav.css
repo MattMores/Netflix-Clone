@@ -1,0 +1,35 @@
+.nav {
+  /* allows it to always be at the top of the screen */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  height: 30px;
+  z-index: 1;
+  /* now it's always at the top due to z-index */
+  display: flex;
+  justify-content: space-between;
+  /* allows flexbox to figure out what the space should be */
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  /* above allows that top border to ease-in when user scrolls past 100 px */
+}
+
+.nav__black {
+  background-color: #111;
+}
+
+.nav__logo {
+  position: fixed;
+  left: 20px;
+  width: 80px;
+  object-fit: contain;
+  /* without OFC, the Netflix logo is stretched */
+}
+
+.nav__avatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+  object-fit: contain;
+}

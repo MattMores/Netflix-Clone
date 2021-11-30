@@ -26,10 +26,12 @@ function Banner() {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     }
 
+    // takes a string, and a number (n) that tells you wehtn to truncate
+
     return (
         <header
         className="banner"
-        style={{
+        style={{ //javascript css
             backgroundSize: "cover",
             backgroundImage: `url(
                 "https://image.tmdb.org/t/p/original/${movie?.backdrop_path}"
@@ -51,8 +53,10 @@ function Banner() {
                 </div>
                 <h1 className="banner__description">
                     {truncate(movie?.overview, 150)}
+                    {/* overview given to us by API. truncate after 150 */}
                 </h1>
             </div>
+            <div className="banner--fadeBottom"/>
         </header>
     )
 }
