@@ -14,7 +14,7 @@ function Nav() {
         });
         return () => {
             window.removeEventListener("scroll");
-        } //remove the listener after each useEffect so you don't have mulitple listeners
+        } //remove the listener after each useEffect firesoff again - so you don't have mulitple listeners
     }, []);
     // black bar to show up ONLY on scroll
 
